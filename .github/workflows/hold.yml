@@ -1,0 +1,14 @@
+# One check that does not settle, so a task that links a pull request here has a
+# review held while the operator coordinates. Nothing else runs.
+name: hold
+
+on:
+  pull_request:
+
+jobs:
+  hold-active-readiness-marker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - name: hold the window open
+        run: sleep 21300
